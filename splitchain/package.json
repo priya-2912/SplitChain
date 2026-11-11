@@ -1,0 +1,16 @@
+{
+  "name": "splitchain",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["contracts", "frontend"],
+  "scripts": {
+    "dev": "npm run dev -w frontend",
+    "build": "npm run build -w frontend",
+    "test": "npm run test -w contracts && npm run test -w frontend",
+    "test:contracts": "npm run test -w contracts",
+    "test:frontend": "npm run test -w frontend",
+    "compile": "npm run compile -w contracts",
+    "deploy:local": "npm run deploy:local -w contracts",
+    "deploy:sepolia": "npm run deploy:sepolia -w contracts"
+  }
+}

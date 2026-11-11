@@ -1,0 +1,528 @@
+[
+  {
+    "type": "function",
+    "name": "createGroup",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "initialMembers",
+        "type": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "addMember",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256"
+      },
+      {
+        "name": "member",
+        "type": "address"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "getGroup",
+    "stateMutability": "view",
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "name": "creator",
+            "type": "address"
+          },
+          {
+            "name": "createdAt",
+            "type": "uint64"
+          },
+          {
+            "name": "active",
+            "type": "bool"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          }
+        ],
+        "type": "tuple"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getMembers",
+    "stateMutability": "view",
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "address[]"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getMemberNetBalance",
+    "stateMutability": "view",
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256"
+      },
+      {
+        "name": "member",
+        "type": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "int256"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "addExpense",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256"
+      },
+      {
+        "name": "payer",
+        "type": "address"
+      },
+      {
+        "name": "totalAmount",
+        "type": "uint256"
+      },
+      {
+        "name": "participants",
+        "type": "address[]"
+      },
+      {
+        "name": "shares",
+        "type": "uint256[]"
+      },
+      {
+        "name": "descriptionHash",
+        "type": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getGroupExpenseIds",
+    "stateMutability": "view",
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256[]"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getExpense",
+    "stateMutability": "view",
+    "inputs": [
+      {
+        "name": "expenseId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "name": "groupId",
+            "type": "uint256"
+          },
+          {
+            "name": "payer",
+            "type": "address"
+          },
+          {
+            "name": "totalAmount",
+            "type": "uint256"
+          },
+          {
+            "name": "createdAt",
+            "type": "uint64"
+          },
+          {
+            "name": "descriptionHash",
+            "type": "bytes32"
+          }
+        ],
+        "type": "tuple"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getExpenseShares",
+    "stateMutability": "view",
+    "inputs": [
+      {
+        "name": "expenseId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "address[]"
+      },
+      {
+        "type": "uint256[]"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getGroupSettlementIds",
+    "stateMutability": "view",
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256[]"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getSettlement",
+    "stateMutability": "view",
+    "inputs": [
+      {
+        "name": "settlementId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "name": "groupId",
+            "type": "uint256"
+          },
+          {
+            "name": "debtor",
+            "type": "address"
+          },
+          {
+            "name": "creditor",
+            "type": "address"
+          },
+          {
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "name": "createdAt",
+            "type": "uint64"
+          },
+          {
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "name": "referenceHash",
+            "type": "bytes32"
+          }
+        ],
+        "type": "tuple"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "proposeSettlement",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256"
+      },
+      {
+        "name": "creditor",
+        "type": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "name": "referenceHash",
+        "type": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "confirmSettlement",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      {
+        "name": "settlementId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "rejectSettlement",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      {
+        "name": "settlementId",
+        "type": "uint256"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "event",
+    "name": "GroupCreated",
+    "anonymous": false,
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "creator",
+        "type": "address",
+        "indexed": true
+      },
+      {
+        "name": "titleHash",
+        "type": "bytes32",
+        "indexed": false
+      },
+      {
+        "name": "timestamp",
+        "type": "uint64",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "MemberAdded",
+    "anonymous": false,
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "member",
+        "type": "address",
+        "indexed": true
+      },
+      {
+        "name": "addedBy",
+        "type": "address",
+        "indexed": true
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "ExpenseAdded",
+    "anonymous": false,
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "expenseId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "payer",
+        "type": "address",
+        "indexed": true
+      },
+      {
+        "name": "totalAmount",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "timestamp",
+        "type": "uint64",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "SettlementProposed",
+    "anonymous": false,
+    "inputs": [
+      {
+        "name": "settlementId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "groupId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "debtor",
+        "type": "address",
+        "indexed": true
+      },
+      {
+        "name": "creditor",
+        "type": "address",
+        "indexed": false
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "SettlementConfirmed",
+    "anonymous": false,
+    "inputs": [
+      {
+        "name": "settlementId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "groupId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "debtor",
+        "type": "address",
+        "indexed": true
+      },
+      {
+        "name": "creditor",
+        "type": "address",
+        "indexed": false
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "SettlementRejected",
+    "anonymous": false,
+    "inputs": [
+      {
+        "name": "settlementId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "groupId",
+        "type": "uint256",
+        "indexed": true
+      },
+      {
+        "name": "debtor",
+        "type": "address",
+        "indexed": true
+      },
+      {
+        "name": "creditor",
+        "type": "address",
+        "indexed": false
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "GroupClosed",
+    "anonymous": false,
+    "inputs": [
+      {
+        "name": "groupId",
+        "type": "uint256",
+        "indexed": true
+      }
+    ]
+  }
+]
